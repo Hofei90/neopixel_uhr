@@ -1,0 +1,43 @@
+interface = "wlan0"
+led_helligkeit = 0.05
+mode_nummer = "1"
+loglevel = 10  # (10=Debug, 20=Info, 30=Warning, 40=Error, 50=Critical)
+
+
+[mode]
+    # RGB Farben Definition in den Listen
+    # Index 0 = Rot
+    # Index 1 = Grün
+    # Index 2 = Blau
+
+    # Stunden Minuten und Sekundenzeiger einzeln
+    [mode.0]
+    leer = [0, 0, 0]
+    sekunde = [0, 180, 0]
+    minute = [32, 178, 170]
+    stunde = [255, 0, 255]
+
+    # Stunden und Minutenzeiger dauerhaft
+    [mode.1]
+    leer = [0, 0, 0]
+    sekunde = []
+    minute = [0, 255, 0]
+    stunde = [255, 0, 0]
+
+    # Uhr aus
+    [mode.2]
+    leer = [0, 0, 0]
+    sekunde = [0, 0, 0]
+    minute = [0, 0, 0]
+    stunde = [0, 0, 0]
+
+[ping]
+    # Passende IP Adressen eintragen
+    [ping.anwesend]
+        ping = []
+        bt = []
+        arping = []
+    [ping.dimmen]
+        ping = []
+        bt = []
+        arping = []

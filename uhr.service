@@ -1,0 +1,10 @@
+# /etc/systemd/system/uhr.service
+[Unit]
+Description=Uhr starten
+
+[Service]
+Type=simple
+ExecStart=/usr/bin/python3 /home/pi/uhr/uhr.py
+
+[Install]
+WantedBy=multi-user.target
