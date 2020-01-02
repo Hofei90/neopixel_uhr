@@ -1,43 +1,50 @@
 # Hofei's Neopixel Uhr
 
 ## Beschreibung
+
 Die Software steuert einen Neopixel Ring mit 60 LEDs an, zur Darstellung der Uhrzeit.
 
 Mit Hilfe von 2 Tastern lässt sich die Helligkeit variabel einstellen und mit dem 3. Taster zwischen verschiedenen 
 Darstellungsmodien wechseln. Die zuletzt ausgewählten Einstellungen werden in einer Config File abgespeichert um bei 
 erneuten Start des Programmes die Einstellungen wieder herstellen zu können.
 
-
-
 ## Installation
+
 Für die Installation, als auch die Ausführung des Skriptes erfordert root-Rechte.
 
 Software installieren:
 
-    apt install iputils-arping python3-systemd
-    
+```console
+apt install iputils-arping python3-systemd
+```
     
 Pythonmodule installieren:
 
-    sudo pip3 install requirements.txt
-    
-Projekt clonen: (die weitere Anleitung als auch die Service Unit geht davon aus, dass das Projekt unter /home/pi/uhr 
-installiert wurde. Sollte es zu Abweichungen kommen muss der Pfad in der Service Unit korrigiert werden)
+```console
+sudo pip3 install requirements.txt
+```
 
-    git clone https://github.com/Hofei90/neopixel_uhr.git
-    
+Projekt clonen: (die weitere Anleitung als auch die Service Unit geht davon aus, dass das Projekt unter `/home/pi/uhr` installiert wurde. Sollte es zu Abweichungen kommen muss der Pfad in der Service Unit korrigiert werden)
+
+```console
+git clone https://github.com/Hofei90/neopixel_uhr.git uhr
+```
+
 Anschließend die im Projektordner befindliche Datei `uhr.service` nach `/etc/systemd/system/` kopieren und Rechte 
 anpassen.
 
-    cp /home/pi/uhr/uhr.service /etc/systemd/system/
-    chown root:root /etc/systemd/system/uhr.service
-    chmod 644 /etc/systemd/system/uhr.service
-    
+```console
+cp /home/pi/uhr/uhr.service /etc/systemd/system/
+chown root:root /etc/systemd/system/uhr.service
+chmod 644 /etc/systemd/system/uhr.service
+```
+
 Zuletzt die Vorlagenkonfiguration kopieren/umbennen und den Inhalt entsprechend anpassen:
 
-    cp /home/pi/uhr/uhr_cfg_vorlage.toml /home/pi/uhr/uhr_cfg.toml
-    nano /home/pi/uhr/uhr_cfg.toml
-    
+```console
+cp /home/pi/uhr/uhr_cfg_vorlage.toml /home/pi/uhr/uhr_cfg.toml
+nano /home/pi/uhr/uhr_cfg.toml
+```
 
 Mit `systemctl start uhr.service` kann das Programm gestartet werden.
 
@@ -68,9 +75,7 @@ Farbe angezeigt.
 
 Keine Anzeige von LEDs
 
-
 ## Sonstiges
 
 Die Anzeige schaltet sich nach 0 Uhr bis 5 Uhr aus, wenn kein Gerät läuft welches Dimmen erforderlich macht. Hier wird
 davon ausgegangen, dass der Benutzer schläft und keine Anzeige erforderlich ist.
-
