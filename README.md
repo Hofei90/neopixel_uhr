@@ -27,7 +27,7 @@ sudo pip3 install requirements.txt
 Projekt clonen: (die weitere Anleitung als auch die Service Unit geht davon aus, dass das Projekt unter `/home/pi/uhr` installiert wurde. Sollte es zu Abweichungen kommen muss der Pfad in der Service Unit korrigiert werden)
 
 ```console
-git clone https://github.com/Hofei90/neopixel_uhr.git uhr
+git clone https://github.com/Hofei90/neopixel_uhr.git /homer/pi/uhr
 ```
 
 Anschließend die im Projektordner befindliche Datei `uhr.service` nach `/etc/systemd/system/` kopieren und Rechte 
