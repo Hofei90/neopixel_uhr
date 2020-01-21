@@ -220,8 +220,16 @@ def stunde_minute_dauerhaft_modus(zeit, stdliste, rgbdict):
         leer_leds = []
 
     if max(minuten_leds) < max(stunden_leds):
-        sonstige_leds = list(set(stunden_leds) & set(minuten_leds))
-        minuten_leds = list(set(minuten_leds) - set(sonstige_leds))
+        if index == 0:
+            if zeit.minute <= 1:
+                sonstige_leds = [minute for minute in range(0, zeit.minute + 1)]
+            elif zeit.minute == 59:
+                sontige_leds = [59]
+            else:
+                sonstige_leds = []
+        else:
+            sonstige_leds = list(set(stunden_leds) & set(minuten_leds))
+            minuten_leds = list(set(minuten_leds) - set(sonstige_leds))
     else:
         sonstige_leds = []
 
