@@ -224,7 +224,7 @@ def stunde_minute_dauerhaft_modus(zeit, stdliste, rgbdict):
             if zeit.minute <= 1:
                 sonstige_leds = [minute for minute in range(0, zeit.minute + 1)]
             elif zeit.minute == 59:
-                sontige_leds = [59]
+                sonstige_leds = [59]
             else:
                 sonstige_leds = []
         else:
